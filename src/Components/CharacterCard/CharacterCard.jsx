@@ -7,7 +7,7 @@ function CharacterCard({character}) {
         {/* CharacterCard */}
         <img src={character.image} alt="" />
         <p>{character.name}</p>
-        <a href="">See Details</a>
+        <a href={`/details/${character.id}`}>See Details</a>
 
     </div>
   )
