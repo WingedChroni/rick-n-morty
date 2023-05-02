@@ -1,14 +1,16 @@
-import React, {useEffect, useState} from 'react'
+import React, {useEffect, useState, useContext} from 'react'
 import "./HomePage.css";
 import axios from 'axios';
 import CharacterCard from '../../Components/CharacterCard/CharacterCard';
 import Search from '../../Components/Search/Search';
+import { ThemeContext } from './../../contexts/ThemeContext';
 
 function HomePage() {
 
     //create state to store characters
     const [characters, setCharacters] = useState([]);
 
+    const {darkMode, setDarkMode} = useContext(ThemeContext);
 
     //https://rickandmortyapi.com/api/character
 
@@ -19,6 +21,7 @@ function HomePage() {
             //use axios to make api calls
             axios.get(`https://rickandmortyapi.com/api/character`).then(
                 res=>{
+                    console.log("load result");
                     console.log(res.data.results);
                     //What do i do with this data?
                     //store in state
@@ -31,7 +34,7 @@ function HomePage() {
 
 
   return (
-    <div className='home-container'>
+    <div className={darkMode?'home-container home-dark' : "home-container"}>
         <Search setCharacters={setCharacters}/>
         <h1>Main Characters</h1>
         <div className="characters-container">

@@ -7,6 +7,8 @@ import HomePage from './pages/HomePage/HomePage';
 import About from './pages/About/About';
 import Episodes from './pages/Episodes/Episodes';
 import CharacterDetails from './pages/CharacterDetails/CharacterDetails';
+import ThemeContextProvider from './contexts/ThemeContext';
+
 
 
 function App() {
@@ -15,6 +17,9 @@ function App() {
   return (
     // <div className="App">
     <BrowserRouter>
+
+    {/* Anything inside can get access to the ThemeContext */}
+    <ThemeContextProvider>
       <Header />
 
       <Routes>
@@ -25,6 +30,7 @@ function App() {
       </Routes>
     
       <Footer />
+      </ThemeContextProvider>
     </BrowserRouter>
     // </div>
   )

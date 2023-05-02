@@ -10,10 +10,12 @@ function Search({setCharacters}) {
     const handleSearch = (e) => {
         //stop default form action
         e.preventDefault();
+        console.log("query is");
         console.log(query);
         //make api call to get characters that match
         axios.get(`https://rickandmortyapi.com/api/character/?name=${query}`).then(
             res=>{
+                console.log("search result")
                 console.log(res.data.results)
                 //change what is in characters
                 setCharacters (res.data.results)

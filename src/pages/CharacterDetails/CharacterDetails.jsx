@@ -7,6 +7,8 @@ function CharacterDetails() {
     //I need to get the id of this character from the url
 
     const {characterId} = useParams()
+    console.log(`how do i konw what this is ${characterId}`)
+    console.log(characterId)
     
     //make state to hold api data
     const [character, setCharacter] = React.useState({})
